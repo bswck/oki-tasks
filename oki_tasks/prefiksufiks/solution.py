@@ -26,7 +26,7 @@ def seek_cyclically_equivalent_ends(string, middle=None):
     """
     if middle is None:
         middle = len(string) // 2
-    middle_right = middle
+    middle_right = middle + 1 + (middle % 2 != 1)
 
     def decrement_middle():
         nonlocal middle, middle_right
@@ -37,7 +37,7 @@ def seek_cyclically_equivalent_ends(string, middle=None):
         return string[:middle]
 
     def get_suffix():
-        return string[middle_right + (middle_right % 2 == 0):]
+        return string[middle_right:]
 
     prefix = get_prefix()
     suffix = get_suffix()
