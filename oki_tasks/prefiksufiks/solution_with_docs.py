@@ -1,9 +1,18 @@
 def shift_left(string):
+    """
+    Move the first letter of a string to the end of the string.
+          ←   ←
+    | a | b | c |   |   ->  |   | b | c | a |
+      ↓  →  →  →  ↑
+    """
     start, *rest = string
     return ''.join((*rest, start))
 
 
 def cyclically_equivalent(shifted, referred):
+    """
+    Check if two strings are cyclically equivalent.
+    """
     for i in range(len(shifted)):
         if shifted == referred:
             return True
@@ -12,6 +21,9 @@ def cyclically_equivalent(shifted, referred):
 
 
 def seek_cyclically_equivalent_ends(string, middle=None):
+    """
+    Seek a prefix and suffix pair of string substrings that are cyclically equivalent.
+    """
     if middle is None:
         middle = len(string) // 2
     middle_right = middle + 1 + (middle % 2 != 1)
@@ -39,6 +51,7 @@ def seek_cyclically_equivalent_ends(string, middle=None):
 
 
 def compute_cyclically_equivalent_ends_length(string, middle=None):
+    """Compute length of two ends of a string that are cyclically equivalent."""
     return seek_cyclically_equivalent_ends(string, middle)[2]
 
 
