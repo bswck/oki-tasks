@@ -42,7 +42,7 @@ def seek_cyclically_equivalent_ends(string, middle=None):
     prefix = get_prefix()
     suffix = get_suffix()
 
-    while not cyclically_equivalent(prefix, suffix) and middle:
+    while middle and not cyclically_equivalent(prefix, suffix):
         decrement_middle()
         prefix = get_prefix()
         suffix = get_suffix()
