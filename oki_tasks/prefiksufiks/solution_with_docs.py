@@ -1,23 +1,8 @@
-def shift_left(string):
-    """
-    Move the first letter of a string to the end of the string.
-          ←   ←
-    | a | b | c |   |   ->  |   | b | c | a |
-      ↓  →  →  →  ↑
-    """
-    start, *rest = string
-    return ''.join((*rest, start))
-
-
-def cyclically_equivalent(shifted, referred):
+def cyclically_equivalent(a, b):
     """
     Check if two strings are cyclically equivalent.
     """
-    for i in range(len(shifted)):
-        if shifted == referred:
-            return True
-        shifted = shift_left(shifted)
-    return False
+    return ' '.join(a) in ' '.join([' '.join(b)] * 2)
 
 
 def seek_cyclically_equivalent_ends(string, middle=None):

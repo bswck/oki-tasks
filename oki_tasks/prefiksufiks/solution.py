@@ -1,14 +1,5 @@
-def shift_left(string):
-    start, *rest = string
-    return ''.join((*rest, start))
-
-
-def cyclically_equivalent(shifted, referred):
-    for i in range(len(shifted)):
-        if shifted == referred:
-            return True
-        shifted = shift_left(shifted)
-    return False
+def cyclically_equivalent(a, b):
+    return ' '.join(a) in ' '.join([' '.join(b)] * 2)
 
 
 def seek_cyclically_equivalent_ends(string, middle=None):
