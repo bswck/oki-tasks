@@ -50,10 +50,10 @@ def seek_cyclically_equivalent_ends(string, middle=None):
     return prefix, suffix, middle
 
 
-def compute_cyclically_equivalent_ends_length(string):
+def compute_cyclically_equivalent_ends_length(string, middle=None):
     """Compute length of two ends of a string that are cyclically equivalent."""
-    return seek_cyclically_equivalent_ends(string)[2]
+    return seek_cyclically_equivalent_ends(string, middle)[2]
 
 
 if __name__ == '__main__':
-    print(compute_cyclically_equivalent_ends_length(input()))
+    print(compute_cyclically_equivalent_ends_length(middle=int(input()) // 2, string=input()))
