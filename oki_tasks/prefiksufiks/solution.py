@@ -13,7 +13,7 @@ def cyclically_equivalent(shifted, referred):
     """
     Check if two strings are cyclically equivalent.
     """
-    for i in range(shifted):
+    for i in range(len(shifted)):
         if shifted == referred:
             return True
         shifted = shift_left(shifted)
